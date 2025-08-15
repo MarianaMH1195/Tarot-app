@@ -1,7 +1,293 @@
-.hero {
-  padding: 18px; margin-bottom: 24px;
-  background: linear-gradient(180deg, rgba(75,0,130,.25), rgba(32,26,54,.6));
-  border: 1px solid rgba(255,215,0,.25); border-radius: 16px;
+/* =============================================
+   ESTILOS PÁGINA HOME - VISTA PRINCIPAL
+   ============================================== */
+
+.home-page {
+  width: 100%;
+  min-height: 100vh;
 }
-.hero h1 { margin: 0 0 6px; }
+
+/* Hero Section */
+.home-hero {
+  margin-bottom: 3rem;
+  animation: fadeIn 1s ease-in;
+}
+
+.hero-title {
+  font-family: var(--font-title);
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--golden-soft);
+  text-align: center;
+  margin-bottom: 1.5rem;
+  text-shadow: var(--golden-glow);
+  animation: titleGlow 3s ease-in-out infinite alternate;
+}
+
+.hero-description {
+  font-family: var(--font-text);
+  font-size: 1.2rem;
+  line-height: 1.7;
+  color: var(--ivory-white);
+  text-align: center;
+  margin-bottom: 2rem;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  font-style: italic;
+}
+
+.hero-actions {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.mystic-button.primary {
+  background: linear-gradient(45deg, var(--golden-soft), #ffed4a);
+  color: var(--primary-purple);
+  font-size: 1.1rem;
+  padding: 16px 32px;
+  box-shadow: 0 6px 20px rgba(255, 215, 0, 0.4);
+}
+
+.mystic-button.primary:hover {
+  background: linear-gradient(45deg, #ffed4a, var(--golden-soft));
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(255, 215, 0, 0.6);
+}
+
+.mystic-button.secondary {
+  background: transparent;
+  color: var(--silver-light);
+  border: 2px solid var(--silver-light);
+}
+
+.mystic-button.secondary:hover {
+  background: var(--silver-light);
+  color: var(--primary-purple);
+}
+
+/* Estadísticas místicas */
+.home-stats {
+  margin-bottom: 3rem;
+  animation: slideIn 1s ease-out 0.3s both;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
+  text-align: center;
+}
+
+.stat-item {
+  background: rgba(11, 27, 63, 0.3);
+  border: 1px solid rgba(255, 215, 0, 0.2);
+  border-radius: 15px;
+  padding: 2rem 1rem;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.stat-item:hover {
+  transform: translateY(-5px);
+  border-color: var(--golden-soft);
+  box-shadow: var(--golden-glow);
+}
+
+.stat-item::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(45deg, 
+    transparent, 
+    rgba(255, 215, 0, 0.05), 
+    transparent);
+  transform: rotate(45deg);
+  transition: all 0.3s ease;
+  opacity: 0;
+}
+
+.stat-item:hover::before {
+  opacity: 1;
+  animation: shine 2s ease-in-out infinite;
+}
+
+@keyframes shine {
+  0% { transform: rotate(45deg) translateX(-100%); }
+  100% { transform: rotate(45deg) translateX(100%); }
+}
+
+.stat-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  display: block;
+}
+
+.stat-number {
+  font-family: var(--font-title);
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--golden-soft);
+  margin-bottom: 0.5rem;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.stat-label {
+  font-family: var(--font-text);
+  font-size: 1rem;
+  color: var(--silver-light);
+  font-style: italic;
+}
+
+/* Sección de cartas */
+.home-cards {
+  animation: fadeIn 1s ease-in 0.6s both;
+}
+
+/* Información adicional */
+.home-info {
+  margin-top: 4rem;
+  animation: slideIn 1s ease-out 0.9s both;
+}
+
+.info-title {
+  font-family: var(--font-title);
+  font-size: 2rem;
+  color: var(--golden-soft);
+  text-align: center;
+  margin-bottom: 2rem;
+  text-shadow: var(--golden-glow);
+}
+
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.info-card {
+  background: linear-gradient(135deg, 
+    rgba(59, 10, 69, 0.2) 0%, 
+    rgba(11, 27, 63, 0.2) 100%);
+  border: 1px solid rgba(255, 215, 0, 0.2);
+  border-radius: 15px;
+  padding: 2rem;
+  text-align: center;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.info-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(255, 215, 0, 0.4);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.info-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  display: block;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+}
+
+.info-card h4 {
+  font-family: var(--font-title);
+  font-size: 1.5rem;
+  color: var(--golden-soft);
+  margin-bottom: 1rem;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.info-card p {
+  font-family: var(--font-text);
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--silver-light);
+  margin: 0;
+  font-style: italic;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 2rem;
+  }
+  
+  .hero-description {
+    font-size: 1rem;
+    padding: 0 1rem;
+  }
+  
+  .hero-actions {
+    gap: 1rem;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .mystic-button.primary,
+  .mystic-button.secondary {
+    width: 100%;
+    max-width: 300px;
+  }
+  
+  .stats-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .stat-item {
+    padding: 1.5rem 1rem;
+  }
+  
+  .stat-number {
+    font-size: 2rem;
+  }
+  
+  .info-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .info-card {
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-title {
+    font-size: 1.7rem;
+  }
+  
+  .home-hero .mystic-container {
+    padding: 1.5rem;
+  }
+  
+  .stat-icon,
+  .info-icon {
+    font-size: 2.5rem;
+  }
+  
+  .stat-number {
+    font-size: 1.8rem;
+  }
+  
+  .info-title {
+    font-size: 1.7rem;
+  }
+  
+  .info-card h4 {
+    font-size: 1.3rem;
+  }
+  
+  .info-card p {
+    font-size: 0.9rem;
+  }
+}
 
