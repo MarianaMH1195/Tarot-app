@@ -1,43 +1,651 @@
-.reading-preparation, .reading-complete {
-  padding: 18px; border-radius: 16px; border: 1px solid var(--card-border);
-  background: linear-gradient(180deg, rgba(75,0,130,.18), rgba(32,26,54,.5));
+/* =============================================
+   ESTILOS COMPONENTE TAROTREADING - LECTURA INTERACTIVA
+   ============================================== */
+
+.tarot-reading {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+  animation: fadeIn 0.8s ease-in;
 }
+
+/* =========================
+   FASE DE PREPARACIÓN
+   ========================= */
+
+.reading-preparation {
+  text-align: center;
+  animation: slideIn 0.8s ease-out;
+}
+
+.preparation-content {
+  background: rgba(59, 10, 69, 0.2);
+  backdrop-filter: blur(10px);
+  border: 2px solid rgba(255, 215, 0, 0.3);
+  border-radius: 25px;
+  padding: 3rem 2rem;
+  box-shadow: var(--purple-shadow);
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.preparation-title {
+  font-family: var(--font-title);
+  font-size: 2.5rem;
+  color: var(--golden-soft);
+  text-shadow: var(--golden-glow);
+  margin-bottom: 2rem;
+  animation: titleGlow 3s ease-in-out infinite alternate;
+}
+
+.preparation-description {
+  font-family: var(--font-text);
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: var(--ivory-white);
+  margin-bottom: 3rem;
+  font-style: italic;
+}
+
+.preparation-description p {
+  margin-bottom: 1.5rem;
+}
+
+.preparation-description strong {
+  color: var(--golden-soft);
+  font-weight: 600;
+}
+
 .positions-preview {
-  display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: 12px 0 18px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
+  margin-bottom: 3rem;
 }
+
 .position-preview {
-  border: 1px dashed var(--card-border); border-radius: 10px; padding: 10px; text-align: center;
+  background: rgba(11, 27, 63, 0.3);
+  border: 1px solid rgba(255, 215, 0, 0.2);
+  border-radius: 15px;
+  padding: 1.5rem;
+  transition: all 0.3s ease;
 }
-.position-icon { font-size: 1.6rem; }
 
+.position-preview:hover {
+  transform: translateY(-5px);
+  border-color: var(--golden-soft);
+  box-shadow: 0 8px 25px rgba(255, 215, 0, 0.2);
+}
+
+.position-preview .position-icon {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  display: block;
+}
+
+.position-preview h4 {
+  font-family: var(--font-title);
+  font-size: 1.3rem;
+  color: var(--golden-soft);
+  margin-bottom: 0.5rem;
+}
+
+.position-preview p {
+  font-family: var(--font-text);
+  font-size: 0.9rem;
+  color: var(--silver-light);
+  line-height: 1.4;
+  margin: 0;
+  font-style: italic;
+}
+
+.mystic-button.large {
+  font-size: 1.2rem;
+  padding: 18px 36px;
+  min-width: 250px;
+}
+
+/* =========================
+   FASE DE SELECCIÓN
+   ========================= */
+
+.reading-selection {
+  animation: slideIn 0.8s ease-out;
+}
+
+.selection-title {
+  font-family: var(--font-title);
+  font-size: 2.2rem;
+  color: var(--golden-soft);
+  text-align: center;
+  margin-bottom: 1rem;
+  text-shadow: var(--golden-glow);
+}
+
+.selection-instructions {
+  font-family: var(--font-text);
+  font-size: 1.1rem;
+  color: var(--silver-light);
+  text-align: center;
+  margin-bottom: 3rem;
+  font-style: italic;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Posiciones de la lectura */
 .reading-positions {
-  display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin: 16px 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-bottom: 4rem;
 }
+
+.reading-positions.revelation-mode {
+  margin-bottom: 2rem;
+}
+
 .reading-position {
-  border: 1px solid var(--card-border); border-radius: 12px; padding: 10px; background: #171430;
+  background: rgba(59, 10, 69, 0.2);
+  backdrop-filter: blur(10px);
+  border: 2px solid rgba(255, 215, 0, 0.3);
+  border-radius: 20px;
+  padding: 2rem;
+  text-align: center;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
 }
-.position-header { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }
-.position-card-slot { min-height: 320px; display: grid; place-items: center; }
+
+.reading-position:hover {
+  transform: translateY(-3px);
+  border-color: var(--golden-soft);
+  box-shadow: 0 10px 30px rgba(255, 215, 0, 0.2);
+}
+
+.reading-position.filled {
+  border-color: var(--golden-soft);
+  background: rgba(255, 215, 0, 0.05);
+}
+
+.position-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.position-header .position-icon {
+  font-size: 1.5rem;
+}
+
+.position-header h3 {
+  font-family: var(--font-title);
+  font-size: 1.4rem;
+  color: var(--golden-soft);
+  margin: 0;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.position-card-slot {
+  min-height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+  position: relative;
+}
+
 .empty-slot {
-  width: 100%; height: 290px; display: grid; place-items: center;
-  border: 2px dashed var(--card-border); border-radius: 12px; color: var(--muted);
+  width: 150px;
+  height: 225px;
+  border: 3px dashed rgba(255, 215, 0, 0.4);
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: rgba(11, 27, 63, 0.2);
+  transition: all 0.3s ease;
+  cursor: pointer;
 }
-.slot-icon { font-size: 1.6rem; display: block; text-align: center; }
 
-.available-cards h3 { margin-bottom: 10px; }
-.cards-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); gap: 14px; }
-.selectable-card { cursor: pointer; }
+.empty-slot:hover {
+  border-color: var(--golden-soft);
+  background: rgba(255, 215, 0, 0.1);
+  transform: scale(1.02);
+}
 
-.revelation-mode .reading-position { background: linear-gradient(180deg, rgba(75,0,130,.15), rgba(32,26,54,.45)); }
+.empty-slot .slot-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  opacity: 0.6;
+}
 
-.card-interpretation { margin-top: 10px; }
-.summary-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+.empty-slot p {
+  font-family: var(--font-text);
+  color: var(--silver-light);
+  margin: 0;
+  font-style: italic;
+  font-size: 0.9rem;
+}
+
+.position-description {
+  font-family: var(--font-text);
+  font-size: 0.9rem;
+  color: var(--silver-light);
+  line-height: 1.4;
+  margin: 0;
+  font-style: italic;
+}
+
+/* Cartas disponibles */
+.available-cards {
+  text-align: center;
+  animation: fadeIn 0.6s ease-in 0.3s both;
+}
+
+.available-cards h3 {
+  font-family: var(--font-title);
+  font-size: 1.8rem;
+  color: var(--golden-soft);
+  margin-bottom: 2rem;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 2rem;
+  justify-items: center;
+}
+
+.selectable-card {
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.selectable-card:hover {
+  transform: scale(1.05);
+}
+
+.selection-card {
+  filter: brightness(0.9);
+  transition: all 0.3s ease;
+}
+
+.selection-card:hover {
+  filter: brightness(1.1);
+  box-shadow: 0 10px 30px rgba(255, 215, 0, 0.3);
+}
+
+/* =========================
+   FASE DE REVELACIÓN
+   ========================= */
+
+.reading-revelation {
+  animation: slideIn 0.8s ease-out;
+}
+
+.revelation-title {
+  font-family: var(--font-title);
+  font-size: 2.2rem;
+  color: var(--golden-soft);
+  text-align: center;
+  margin-bottom: 1rem;
+  text-shadow: var(--golden-glow);
+}
+
+.revelation-instructions {
+  font-family: var(--font-text);
+  font-size: 1.1rem;
+  color: var(--silver-light);
+  text-align: center;
+  margin-bottom: 3rem;
+  font-style: italic;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.reading-card.revelable {
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.reading-card.revelable:hover {
+  transform: scale(1.05);
+  filter: brightness(1.1);
+}
+
+.card-interpretation {
+  background: rgba(11, 27, 63, 0.4);
+  border: 1px solid rgba(255, 215, 0, 0.2);
+  border-radius: 15px;
+  padding: 1.5rem;
+  margin-top: 1rem;
+  animation: fadeIn 0.6s ease-in;
+}
+
+.card-interpretation h4 {
+  font-family: var(--font-title);
+  color: var(--golden-soft);
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+}
+
+.interpretation-text {
+  font-family: var(--font-text);
+  color: var(--ivory-white);
+  line-height: 1.6;
+  margin-bottom: 1rem;
+  font-style: italic;
+}
+
+.goddess-connection {
+  font-family: var(--font-text);
+  color: var(--silver-light);
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+.goddess-connection strong {
+  color: var(--golden-soft);
+}
+
+/* =========================
+   LECTURA COMPLETA
+   ========================= */
+
+.reading-complete {
+  text-align: center;
+  animation: fadeIn 1s ease-in;
+}
+
+.complete-title {
+  font-family: var(--font-title);
+  font-size: 2.5rem;
+  color: var(--golden-soft);
+  text-shadow: var(--golden-glow);
+  margin-bottom: 2rem;
+  animation: titleGlow 3s ease-in-out infinite alternate;
+}
+
+.reading-summary {
+  background: rgba(59, 10, 69, 0.2);
+  backdrop-filter: blur(10px);
+  border: 2px solid rgba(255, 215, 0, 0.3);
+  border-radius: 25px;
+  padding: 3rem 2rem;
+  margin-bottom: 3rem;
+  box-shadow: var(--purple-shadow);
+}
+
+.summary-header h3 {
+  font-family: var(--font-title);
+  font-size: 1.8rem;
+  color: var(--golden-soft);
+  margin-bottom: 1rem;
+}
+
+.summary-header p {
+  font-family: var(--font-text);
+  color: var(--silver-light);
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+  font-style: italic;
+}
+
+.summary-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
 .summary-card {
-  border: 1px solid var(--card-border); border-radius: 12px; padding: 10px; background: #171430;
+  background: rgba(11, 27, 63, 0.3);
+  border: 1px solid rgba(255, 215, 0, 0.2);
+  border-radius: 15px;
+  padding: 1.5rem;
+  transition: all 0.3s ease;
 }
-.summary-position { display: flex; align-items: center; gap: 8px; margin-bottom: 6px; }
 
-@media (max-width: 900px) {
-  .reading-positions, .summary-cards { grid-template-columns: 1fr; }
-  .positions-preview { grid-template-columns: 1fr; }
+.summary-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--golden-soft);
+  box-shadow: 0 8px 25px rgba(255, 215, 0, 0.2);
+}
+
+.summary-position {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.summary-position .position-icon {
+  font-size: 1.3rem;
+}
+
+.summary-position strong {
+  font-family: var(--font-title);
+  color: var(--golden-soft);
+  font-size: 1.1rem;
+}
+
+.summary-card-info h4 {
+  font-family: var(--font-title);
+  color: var(--ivory-white);
+  margin-bottom: 0.5rem;
+  font-size: 1.2rem;
+}
+
+.summary-goddess {
+  font-family: var(--font-text);
+  color: var(--silver-light);
+  font-size: 0.9rem;
+  margin: 0;
+  font-style: italic;
+}
+
+.reading-reflection {
+  background: rgba(11, 27, 63, 0.4);
+  border: 1px solid rgba(255, 215, 0, 0.2);
+  border-radius: 15px;
+  padding: 2rem;
+  text-align: left;
+}
+
+.reading-reflection h4 {
+  font-family: var(--font-title);
+  color: var(--golden-soft);
+  margin-bottom: 1rem;
+  text-align: center;
+  font-size: 1.4rem;
+}
+
+.reading-reflection p {
+  font-family: var(--font-text);
+  color: var(--ivory-white);
+  line-height: 1.7;
+  font-style: italic;
+  margin: 0;
+}
+
+.complete-actions {
+  margin-top: 2rem;
+}
+
+/* =========================
+   ESTADO DE ERROR
+   ========================= */
+
+.reading-error {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 400px;
+  padding: 2rem;
+}
+
+.error-content {
+  text-align: center;
+  background: rgba(59, 10, 69, 0.2);
+  backdrop-filter: blur(10px);
+  padding: 3rem 2rem;
+  border-radius: 20px;
+  border: 2px solid rgba(255, 215, 0, 0.3);
+  box-shadow: var(--purple-shadow);
+  max-width: 500px;
+}
+
+.error-symbol {
+  font-size: 4rem;
+  color: #ff6b6b;
+  margin-bottom: 1rem;
+}
+
+.error-content h3 {
+  font-family: var(--font-title);
+  font-size: 1.8rem;
+  color: var(--golden-soft);
+  margin-bottom: 1rem;
+}
+
+.error-content p {
+  font-family: var(--font-text);
+  color: var(--silver-light);
+  margin-bottom: 2rem;
+  font-style: italic;
+}
+
+/* =========================
+   RESPONSIVE DESIGN
+   ========================= */
+
+@media (max-width: 768px) {
+  .tarot-reading {
+    padding: 1rem 0.5rem;
+  }
+  
+  .preparation-title,
+  .complete-title {
+    font-size: 2rem;
+  }
+  
+  .selection-title,
+  .revelation-title {
+    font-size: 1.8rem;
+  }
+  
+  .reading-positions {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .reading-position {
+    padding: 1.5rem;
+  }
+  
+  .position-card-slot {
+    min-height: 250px;
+  }
+  
+  .empty-slot {
+    width: 130px;
+    height: 195px;
+  }
+  
+  .cards-grid {
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 1rem;
+  }
+  
+  .summary-cards {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .positions-preview {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .preparation-content {
+    padding: 2rem 1.5rem;
+  }
+  
+  .reading-summary {
+    padding: 2rem 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .preparation-title,
+  .complete-title {
+    font-size: 1.7rem;
+  }
+  
+  .position-header h3 {
+    font-size: 1.2rem;
+  }
+  
+  .empty-slot {
+    width: 110px;
+    height: 165px;
+  }
+  
+  .empty-slot .slot-icon {
+    font-size: 2rem;
+  }
+  
+  .mystic-button.large {
+    font-size: 1rem;
+    padding: 14px 28px;
+    min-width: 200px;
+  }
+  
+  .position-preview .position-icon {
+    font-size: 2rem;
+  }
+}
+
+/* 🌟 Botón especial para "Ver Resumen de Lectura" */
+.mystic-button.primary.large {
+  background: linear-gradient(135deg, #4b0082, #800080, #ffb347);
+  color: #fff;
+  border: none;
+  font-size: 1.2rem;
+  padding: 0.9rem 1.8rem;
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: bold;
+  letter-spacing: 1px;
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.8);
+  box-shadow: 0 0 15px rgba(255, 215, 0, 0.7), 0 0 30px rgba(255, 105, 180, 0.4);
+  transition: all 0.3s ease-in-out;
+  animation: mysticPulse 1.5s infinite;
+}
+
+.mystic-button.primary.large:hover {
+  transform: scale(1.08);
+  box-shadow: 0 0 20px rgba(255, 215, 0, 0.9), 0 0 40px rgba(255, 105, 180, 0.6);
+}
+
+/* ✨ Animación de pulso mágico */
+@keyframes mysticPulse {
+  0% {
+    box-shadow: 0 0 15px rgba(255, 215, 0, 0.6), 0 0 30px rgba(255, 105, 180, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 25px rgba(255, 215, 0, 0.9), 0 0 50px rgba(255, 105, 180, 0.7);
+  }
+  100% {
+    box-shadow: 0 0 15px rgba(255, 215, 0, 0.6), 0 0 30px rgba(255, 105, 180, 0.4);
+  }
 }

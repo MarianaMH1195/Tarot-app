@@ -1,25 +1,32 @@
-import { Link, Outlet, NavLink } from 'react-router-dom'
+import { Outlet } from 'react-router-dom'
 import './styles/globals.css'
 
-export default function App() {
+/**
+ * Componente raíz de la aplicación
+ * Actúa como layout principal y renderiza las rutas hijas
+ */
+function App() {
   return (
-    <div className="app-shell">
+    <div className="app">
+      {/* Header principal con título místico */}
       <header className="app-header">
-        <Link to="/" className="brand">Tarot de las Diosas</Link>
-        <nav className="main-nav">
-          <NavLink to="/" end>Inicio</NavLink>
-          <NavLink to="/reading">Lectura</NavLink>
-        </nav>
+        <h1 className="app-title">✨ Tarot Místico ✨</h1>
+        <p className="app-subtitle">Descubre los secretos del universo</p>
       </header>
 
-      <main className="app-content">
+      {/* Contenedor principal para todas las páginas */}
+      <main className="app-main">
         <Outlet />
       </main>
 
+      {/* Footer con información mística */}
       <footer className="app-footer">
-        <small>© {new Date().getFullYear()} Tarot de las Diosas · Hecho con 💜</small>
+        <p>&copy;  2025 Tarot Místico - Conectando con el cosmos - Proyecto realizado por Mariana Moreno para el Bootcamp Fullstack
+            (Frontend + Backend) de Factoria F5. Todo los contenidos tienen fines educativos y de divulgación.</p>
       </footer>
     </div>
   )
 }
+
+export default App
 
