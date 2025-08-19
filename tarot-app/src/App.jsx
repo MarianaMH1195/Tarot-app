@@ -7,7 +7,7 @@ function App() {
     <div className="app">
       {/* Header principal con título místico */}
       <header className="app-header">
-        <h1 className="app-title">✨ Tarot Místico ✨</h1>
+        <h1 className="app-title">Tarot Místico </h1>
         <p className="app-subtitle">Descubre los secretos del universo</p>
       </header>
 

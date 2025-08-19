@@ -50,7 +50,7 @@ const CardList = ({ gridColumns = 'auto', className = '', onCardClick }) => {
           onClick={() => setFlipped(prev => !prev)}
         >
           <span className="status-icon">
-            {flipped ? '🃏' : '🔮'}
+            
           </span>
           <span className="status-text">
             {flipped ? 'Cartas reveladas' : 'Cartas ocultas'}

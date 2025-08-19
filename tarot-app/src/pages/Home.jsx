@@ -71,19 +71,19 @@ import '../styles/Home.css';
           <div className="mystic-container">
             <div className="stats-grid">
               <div className="stat-item">
-                <div className="stat-icon">🎴</div>
+                <div className="stat-icon"></div>
                 <div className="stat-number">{cards.length}</div>
                 <div className="stat-label">Arcanos Mayores</div>
               </div>
               <div className="stat-item">
-                <div className="stat-icon">👑</div>
+                <div className="stat-icon"></div>
                 <div className="stat-number">
                   {cards.filter(card => card.goddessName).length}
                 </div>
                 <div className="stat-label">Diosas Asociadas</div>
               </div>
               <div className="stat-item">
-                <div className="stat-icon">✨</div>
+                <div className="stat-icon"></div>
                 <div className="stat-number">∞</div>
                 <div className="stat-label">Posibilidades</div>
               </div>
@@ -110,7 +110,7 @@ import '../styles/Home.css';
             <h3 className="info-title">¿Cómo usar el Tarot Místico?</h3>
             <div className="info-grid">
               <div className="info-card">
-                <div className="info-icon">🔍</div>
+                <div className="info-icon"></div>
                 <h4>Explora</h4>
                 <p>
                   Haz clic en cualquier carta para revelar su significado, 
@@ -118,7 +118,7 @@ import '../styles/Home.css';
                 </p>
               </div>
               <div className="info-card">
-                <div className="info-icon">🎯</div>
+                <div className="info-icon"></div>
                 <h4>Consulta</h4>
                 <p>
                   Usa la función de lectura para obtener una tirada de 
@@ -126,7 +126,7 @@ import '../styles/Home.css';
                 </p>
               </div>
               <div className="info-card">
-                <div className="info-icon">🌟</div>
+                <div className="info-icon"></div>
                 <h4>Reflexiona</h4>
                 <p>
                   Medita sobre los mensajes de las cartas y su conexión 

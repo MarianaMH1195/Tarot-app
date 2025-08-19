@@ -108,7 +108,7 @@ const TarotReading = () => {
           onClick={startReading}
           disabled={loading}
         >
-          {loading ? '🔮 Invocando las cartas...' : '✨ Comenzar Lectura'}
+          {loading ? '🔮 Invocando las cartas...' : ' Comenzar Lectura'}
         </button>
       </div>
     </div>

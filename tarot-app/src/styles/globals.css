@@ -7,7 +7,7 @@
 
 :root {
   /* Paleta de colores mística */
-  --primary-purple: #3B0A45;
+  --primary-purple: #1c0221e4;
   --golden-soft: #FFD700;
   --night-blue: #0B1B3F;
   --silver-light: #C0C0C0;
@@ -67,7 +67,7 @@ body::before {
 .app-header {
   text-align: center;
   padding: 2rem 1rem;
-  background: rgba(59, 10, 69, 0.8);
+  background: #1c0221e4(59, 10, 69, 0.8);
   backdrop-filter: blur(10px);
   border-bottom: 2px solid var(--golden-soft);
   box-shadow: var(--purple-shadow);
