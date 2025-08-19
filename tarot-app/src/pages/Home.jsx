@@ -4,22 +4,14 @@ import CardList from '../components/CardList.jsx';
 import { getAllCards } from '../services/services.js';
 import '../styles/Home.css';
 
-/**
- * =============================================
- * PÁGINA HOME - VISTA PRINCIPAL
- * =============================================
- * Muestra todas las cartas del tarot boca abajo
- * y permite navegación a otras funcionalidades
- */
+/* Muestra todas las cartas del tarot boca abajo y permite navegación a otras funcionalidades*/
 
-const Home = () => {
+  const Home = () => {
   const [cards, setCards] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  /**
-   * Efecto para cargar todas las cartas al montar el componente
-   */
+  /*Efecto para cargar todas las cartas al montar el componente*/
   useEffect(() => {
     const loadCards = async () => {
       try {
@@ -58,7 +50,7 @@ const Home = () => {
           {/* Botones de navegación principales */}
           <div className="hero-actions">
             <Link to="/lectura" className="mystic-button primary">
-              🔮 Iniciar Lectura
+            Iniciar Lectura
             </Link>
             <button 
               className="mystic-button secondary"
@@ -67,7 +59,7 @@ const Home = () => {
                 behavior: 'smooth'
               })}
             >
-              👁️ Explorar Cartas
+            Explorar Cartas
             </button>
           </div>
         </div>

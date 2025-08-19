@@ -1,10 +1,7 @@
 import { Outlet } from 'react-router-dom'
 import './styles/globals.css'
 
-/**
- * Componente raíz de la aplicación
- * Actúa como layout principal y renderiza las rutas hijas
- */
+/*Componente raíz de la aplicación,actúa como layout principal y renderiza las rutas hijas*/
 function App() {
   return (
     <div className="app">

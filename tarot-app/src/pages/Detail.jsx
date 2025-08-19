@@ -3,27 +3,19 @@ import { useParams, Link, useNavigate } from 'react-router-dom';
 import { getCardById } from '../services/services.js';
 import '../styles/Detail.css';
 
-/**
- * =============================================
- * PÁGINA DETAIL - VISTA DETALLE DE CARTA
- * =============================================
- * Muestra información completa de una carta específica
- * incluyendo arcano y diosa asociada
- */
+/*Muestra información completa de una carta específica,incluyendo arcano y diosa asociada*/
 
-const Detail = () => {
+  const Detail = () => {
   const { id } = useParams();
   const navigate = useNavigate();
   const [card, setCard] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [activeImage, setActiveImage] = useState('arcane'); // 'arcane' o 'goddess'
+  const [activeImage, setActiveImage] = useState('arcane'); 
   const [arcaneImageLoaded, setArcaneImageLoaded] = useState(false);
   const [goddessImageLoaded, setGoddessImageLoaded] = useState(false);
 
-  /**
-   * Efecto para cargar la carta al montar el componente
-   */
+  /*Efecto para cargar la carta al montar el componente*/
   useEffect(() => {
     const loadCard = async () => {
       try {
@@ -49,16 +41,12 @@ const Detail = () => {
     }
   }, [id]);
 
-  /**
-   * Maneja el cambio entre imagen del arcano y la diosa
-   */
+  /*Maneja el cambio entre imagen del arcano y la diosa*/
   const handleImageSwitch = (imageType) => {
     setActiveImage(imageType);
   };
 
-  /**
-   * Maneja errores de carga de imagen
-   */
+  /*Maneja errores de carga de imagen*/
   const handleImageError = (event, type) => {
     console.warn(`Error cargando imagen ${type}`);
     if (type === 'arcane') {
@@ -66,7 +54,7 @@ const Detail = () => {
     } else {
       setGoddessImageLoaded(false);
     }
-    // Usar imagen placeholder
+    
     event.target.src = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjYwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjM0IwQTQ1Ii8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIyNCIgZmlsbD0iI0ZGRDcwMCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZHk9Ii4zZW0iPkltYWdlbiBubyBkaXNwb25pYmxlPC90ZXh0Pjwvc3ZnPg==';
   };
 
@@ -91,13 +79,13 @@ const Detail = () => {
           <p>{error}</p>
           <div className="error-actions">
             <Link to="/" className="mystic-button">
-              🏠 Volver al inicio
+               Volver al inicio
             </Link>
             <button 
               className="mystic-button"
               onClick={() => window.location.reload()}
             >
-              🔄 Intentar de nuevo
+               Intentar de nuevo
             </button>
           </div>
         </div>
@@ -113,7 +101,7 @@ const Detail = () => {
           <h2>Carta no encontrada</h2>
           <p>La carta que buscas se ha perdido en las brumas místicas...</p>
           <Link to="/" className="mystic-button">
-            🏠 Explorar otras cartas
+             Explorar otras cartas
           </Link>
         </div>
       </div>
@@ -122,7 +110,7 @@ const Detail = () => {
 
   return (
     <div className="detail-page">
-      {/* Navegación superior */}
+     
       <div className="detail-nav">
         <button 
           onClick={() => navigate(-1)} 
@@ -134,7 +122,7 @@ const Detail = () => {
           <span className="nav-number">Arcano {card.arcaneNumber}</span>
         </div>
         <Link to="/lectura" className="mystic-button primary">
-          🔮 Nueva Lectura
+           Nueva Lectura
         </Link>
       </div>
 
@@ -144,13 +132,13 @@ const Detail = () => {
         <div className="title-decoration">✨ ⭐ ✨</div>
       </div>
 
-      {/* Contenido principal */}
+      
       <div className="detail-content">
         
-        {/* Columna izquierda - Imágenes */}
+       
         <div className="detail-images">
           
-          {/* Navegación entre imágenes */}
+          
           <div className="image-tabs">
             <button
               className={`image-tab ${activeImage === 'arcane' ? 'active' : ''}`}
@@ -171,7 +159,7 @@ const Detail = () => {
           {/* Container de imágenes */}
           <div className="image-display">
             
-            {/* Imagen del arcano */}
+            
             <div className={`image-container ${activeImage === 'arcane' ? 'active' : ''}`}>
               {!arcaneImageLoaded && (
                 <div className="image-loader">
@@ -203,7 +191,7 @@ const Detail = () => {
               )}
             </div>
 
-            {/* Imagen de la diosa */}
+          
             <div className={`image-container ${activeImage === 'goddess' ? 'active' : ''}`}>
               {!goddessImageLoaded && activeImage === 'goddess' && (
                 <div className="image-loader">
@@ -245,10 +233,10 @@ const Detail = () => {
           </div>
         </div>
 
-        {/* Columna derecha - Información textual */}
+        
         <div className="detail-info">
           
-          {/* Información del arcano */}
+          
           <div className="info-section">
             <h2 className="section-title">
               <span className="section-icon">🎴</span>
@@ -261,7 +249,7 @@ const Detail = () => {
             </div>
           </div>
 
-          {/* Información de la diosa */}
+       
           {card.goddessName && (
             <div className="info-section">
               <h2 className="section-title">
@@ -279,10 +267,10 @@ const Detail = () => {
           {/* Acciones */}
           <div className="detail-actions">
             <Link to="/" className="mystic-button">
-              🏠 Todas las cartas
+               Todas las cartas
             </Link>
             <Link to="/lectura" className="mystic-button primary">
-              🔮 Hacer lectura
+               Hacer lectura
             </Link>
           </div>
         </div>

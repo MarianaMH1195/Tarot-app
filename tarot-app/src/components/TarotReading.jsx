@@ -6,7 +6,7 @@ import '../styles/TarotReading.css';
 const TarotReading = () => {
   const [cards, setCards] = useState([]);
   const [selectedCards, setSelectedCards] = useState([]);
-  const [readingStep, setReadingStep] = useState('preparation'); // preparation, selection, revelation, complete
+  const [readingStep, setReadingStep] = useState('preparation'); 
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const [revealedPositions, setRevealedPositions] = useState([]);
@@ -82,7 +82,7 @@ const TarotReading = () => {
   const renderPreparation = () => (
     <div className="reading-preparation">
       <div className="preparation-content">
-        <h2 className="preparation-title">🔮 Preparación para la Lectura</h2>
+        <h2 className="preparation-title"> Preparación para la Lectura</h2>
         <div className="preparation-description">
           <p>
             Estás a punto de realizar una lectura de <strong>Pasado, Presente y Futuro</strong>.
@@ -127,7 +127,7 @@ const TarotReading = () => {
           onClick={chooseRandomThree}
           disabled={cards.length < 3}
         >
-          🔀 Elegir 3 Aleatorias
+           Elegir 3 Aleatorias
         </button>
       </div>
 
@@ -173,7 +173,7 @@ const TarotReading = () => {
 
   const renderRevelation = () => (
     <div className="reading-revelation">
-      <h2 className="revelation-title">🌟 Revelación de tu Lectura</h2>
+      <h2 className="revelation-title"> Revelación de tu Lectura</h2>
       <p className="revelation-instructions">
         Haz clic en cada carta para revelar su mensaje.
       </p>
@@ -214,7 +214,7 @@ const TarotReading = () => {
             className="mystic-button primary large"
             onClick={() => setReadingStep('complete')}
           >
-            📜 Ver Resumen de Lectura
+             Ver Resumen de Lectura
           </button>
         </div>
       )}
@@ -223,7 +223,7 @@ const TarotReading = () => {
 
   const renderComplete = () => (
     <div className="reading-complete">
-      <h2 className="complete-title">✨ Tu Lectura está Completa</h2>
+      <h2 className="complete-title">Tu Lectura está Completa</h2>
       <div className="reading-summary">
         <div className="summary-header">
           <h3>Resumen de tu Lectura</h3>
@@ -248,7 +248,7 @@ const TarotReading = () => {
       </div>
       <div className="complete-actions">
         <button className="mystic-button primary" onClick={resetReading}>
-          🔮 Nueva Lectura
+           Nueva Lectura
         </button>
       </div>
     </div>
@@ -260,7 +260,7 @@ const TarotReading = () => {
         <div className="error-symbol">⚠️</div>
         <h3>Error en la Consulta Mística</h3>
         <p>{error}</p>
-        <button className="mystic-button" onClick={resetReading}>🔄 Intentar de Nuevo</button>
+        <button className="mystic-button" onClick={resetReading}> Intentar de Nuevo</button>
       </div>
     </div>
   );
