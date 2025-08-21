@@ -1,15 +1,18 @@
 import { useState, useEffect } from 'react';
 import Card from './Card.jsx';
+import Modal from './Modal.jsx';
 import { getRandomCards, getAllCards } from '../services/services.js';
 import '../styles/TarotReading.css';
 
-const TarotReading = () => {
+const TarotReading = (props) => {
   const [cards, setCards] = useState([]);
   const [selectedCards, setSelectedCards] = useState([]);
-  const [readingStep, setReadingStep] = useState('preparation'); 
-  const [loading, setLoading] = useState(false);
+  const [readingStep, setReadingStep] = useState('preparation');
+  const [loading, setLoading] = useState(true); // 👈 Cambiado a true por defecto
   const [error, setError] = useState(null);
   const [revealedPositions, setRevealedPositions] = useState([]);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [modalMeaning, setModalMeaning] = useState('');
 
   const positions = [
     { key: 'pasado', name: 'Pasado', icon: '🕰️', description: 'Influencias y experiencias que te han moldeado' },
@@ -17,39 +20,45 @@ const TarotReading = () => {
     { key: 'futuro', name: 'Futuro', icon: '🔮', description: 'Potencialidades y caminos que se abren ante ti' }
   ];
 
-  // Cargar todas las cartas al montar
   useEffect(() => {
-    (async () => {
+    const fetchAllCards = async () => {
       try {
+        setLoading(true);
         const all = await getAllCards();
         setCards(all);
+        setError(null);
       } catch (err) {
-        setError('No se pudieron cargar las cartas.');
+        setError('No se pudieron cargar las cartas. Intenta recargar la página.');
+      } finally {
+        setLoading(false);
       }
-    })();
+    };
+    fetchAllCards();
   }, []);
 
   const startReading = async () => {
-    try {
-      setLoading(true);
-      setError(null);
-      setSelectedCards([]);
-      setRevealedPositions([]);
-      setReadingStep('selection');
-    } catch (err) {
-      setError(err.message);
-    } finally {
-      setLoading(false);
+    // Al iniciar, asumimos que ya las cartas están cargadas
+    if (cards.length === 0) {
+      setError('Las cartas no están disponibles. Por favor, intenta de nuevo más tarde.');
+      return;
     }
+    setLoading(false);
+    setError(null);
+    setSelectedCards([]);
+    setRevealedPositions([]);
+    setReadingStep('selection');
   };
 
   const chooseRandomThree = async () => {
     try {
+      if (cards.length < 3) {
+        throw new Error('No hay suficientes cartas para una lectura.');
+      }
       const randomSelection = await getRandomCards(3);
       setSelectedCards(randomSelection);
       setReadingStep('revelation');
     } catch (err) {
-      setError('No se pudieron seleccionar las cartas.');
+      setError(err.message || 'No se pudieron seleccionar las cartas.');
     }
   };
 
@@ -65,24 +74,44 @@ const TarotReading = () => {
     }
   };
 
-  // Cambiado: ya no pasa automáticamente a "complete"
   const revealCard = (positionIndex) => {
     if (!revealedPositions.includes(positionIndex)) {
       setRevealedPositions(prev => [...prev, positionIndex]);
     }
   };
 
+  const handleCardClick = (card) => {
+    setModalMeaning(card);
+    setIsModalOpen(true);
+  };
+  
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+    setModalMeaning('');
+  };
+
   const resetReading = () => {
     setSelectedCards([]);
     setRevealedPositions([]);
     setReadingStep('preparation');
-    getAllCards().then(all => setCards(all));
+    // Volvemos a cargar las cartas para asegurar que el mazo esté completo
+    const fetchAllCards = async () => {
+      try {
+        const all = await getAllCards();
+        setCards(all);
+        setError(null);
+      } catch (err) {
+        setError('No se pudieron cargar las cartas para una nueva lectura.');
+      }
+    };
+    fetchAllCards();
+    handleCloseModal();
   };
 
   const renderPreparation = () => (
     <div className="reading-preparation">
       <div className="preparation-content">
-        <h2 className="preparation-title"> Preparación para la Lectura</h2>
+        <h2 className="preparation-title">Preparación para la Lectura</h2>
         <div className="preparation-description">
           <p>
             Estás a punto de realizar una lectura de <strong>Pasado, Presente y Futuro</strong>.
@@ -106,9 +135,9 @@ const TarotReading = () => {
         <button 
           className="mystic-button primary large"
           onClick={startReading}
-          disabled={loading}
+          disabled={loading || cards.length === 0}
         >
-          {loading ? '🔮 Invocando las cartas...' : ' Comenzar Lectura'}
+          {loading ? '🔮 Invocando las cartas...' : 'Comenzar Lectura'}
         </button>
       </div>
     </div>
@@ -140,11 +169,20 @@ const TarotReading = () => {
             </div>
             <div className="position-card-slot">
               {selectedCards[index] ? (
-                <Card card={selectedCards[index]} isFlipped={false} onClick={null} showDetails={false} />
+<Card
+  card={selectedCards[index]}
+  isFlipped={revealedPositions.includes(index)}
+  onClick={(card) => {
+    revealCard(index);
+    handleCardClick(card); // ahora card es el objeto completo
+  }}
+  showDetails={true}
+/>
+              
               ) : (
                 <div className="empty-slot">
                   <span className="slot-icon">{position.icon}</span>
-                  <p>Selecciona una carta</p>
+                  
                 </div>
               )}
             </div>
@@ -173,7 +211,7 @@ const TarotReading = () => {
 
   const renderRevelation = () => (
     <div className="reading-revelation">
-      <h2 className="revelation-title"> Revelación de tu Lectura</h2>
+      <h2 className="revelation-title">Revelación de tu Lectura</h2>
       <p className="revelation-instructions">
         Haz clic en cada carta para revelar su mensaje.
       </p>
@@ -188,9 +226,13 @@ const TarotReading = () => {
               <Card
                 card={selectedCards[index]}
                 isFlipped={revealedPositions.includes(index)}
-                onClick={() => revealCard(index)}
+                onClick={(card) => {
+                  revealCard(index);      // primero marcamos como revelada
+                  handleCardClick(card);  // pasamos todo el objeto al modal
+                }}
                 showDetails={true}
               />
+
             </div>
             {revealedPositions.includes(index) && (
               <div className="card-interpretation">
@@ -207,7 +249,6 @@ const TarotReading = () => {
         ))}
       </div>
 
-      {/* Botón visible solo cuando las 3 cartas están reveladas */}
       {revealedPositions.length === 3 && (
         <div style={{ textAlign: 'center', marginTop: '2rem' }}>
           <button 
@@ -260,12 +301,23 @@ const TarotReading = () => {
         <div className="error-symbol">⚠️</div>
         <h3>Error en la Consulta Mística</h3>
         <p>{error}</p>
-        <button className="mystic-button" onClick={resetReading}> Intentar de Nuevo</button>
+        <button className="mystic-button" onClick={resetReading}>Intentar de Nuevo</button>
       </div>
     </div>
   );
 
-  if (error) return renderError();
+  if (loading) {
+    return (
+      <div className="tarot-loading">
+        <div className="loading-spinner"></div>
+        <p>Cargando sabiduría ancestral...</p>
+      </div>
+    );
+  }
+
+  if (error) {
+    return renderError();
+  }
 
   return (
     <div className="tarot-reading">
@@ -273,11 +325,14 @@ const TarotReading = () => {
       {readingStep === 'selection' && renderSelection()}
       {readingStep === 'revelation' && renderRevelation()}
       {readingStep === 'complete' && renderComplete()}
+
+      <Modal
+        isOpen={isModalOpen}
+        onClose={handleCloseModal}
+        meaning={modalMeaning}
+      />
     </div>
   );
 };
 
 export default TarotReading;
-
-
-
