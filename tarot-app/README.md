@@ -113,21 +113,30 @@ El diseño se inspiró en:
 - Juegos de cartas con animaciones 3D.  
 - Estética esotérica y mágica en interfaces digitales.  
 
-🚀 Instrucciones de instalación
+🚀 **Instrucciones de instalación**
+
+## 1. Clonar el repositorio
 ```bash
-# 1. Clonar el repositorio
 git clone <URL-del-repositorio>
-
-# 2. Entrar en la carpeta del proyecto
+```
+2. Entrar en la carpeta del proyecto
+```bash
+Copiar
+Editar
 cd Proyectos
-
-# 3. Instalar dependencias
+```
+3. Instalar dependencias
+```bash
+Copiar
+Editar
 npm install
-
-# 4. Iniciar el servidor de desarrollo
+```
+4. Iniciar el servidor de desarrollo
+```bash
+Copiar
+Editar
 npm run dev
 ```
-
 La aplicación estará disponible en: http://localhost:5173/
 
 ## 🔗 Estructura de archivos
