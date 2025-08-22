@@ -8,7 +8,7 @@ const TarotReading = (props) => {
   const [cards, setCards] = useState([]);
   const [selectedCards, setSelectedCards] = useState([]);
   const [readingStep, setReadingStep] = useState('preparation');
-  const [loading, setLoading] = useState(true); // 👈 Cambiado a true por defecto
+  const [loading, setLoading] = useState(true); 
   const [error, setError] = useState(null);
   const [revealedPositions, setRevealedPositions] = useState([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -37,7 +37,7 @@ const TarotReading = (props) => {
   }, []);
 
   const startReading = async () => {
-    // Al iniciar, asumimos que ya las cartas están cargadas
+    
     if (cards.length === 0) {
       setError('Las cartas no están disponibles. Por favor, intenta de nuevo más tarde.');
       return;
@@ -94,7 +94,7 @@ const TarotReading = (props) => {
     setSelectedCards([]);
     setRevealedPositions([]);
     setReadingStep('preparation');
-    // Volvemos a cargar las cartas para asegurar que el mazo esté completo
+
     const fetchAllCards = async () => {
       try {
         const all = await getAllCards();
@@ -174,7 +174,7 @@ const TarotReading = (props) => {
   isFlipped={revealedPositions.includes(index)}
   onClick={(card) => {
     revealCard(index);
-    handleCardClick(card); // ahora card es el objeto completo
+ 
   }}
   showDetails={true}
 />
@@ -223,15 +223,20 @@ const TarotReading = (props) => {
               <h3>{position.name}</h3>
             </div>
             <div className="position-card-slot">
-              <Card
-                card={selectedCards[index]}
-                isFlipped={revealedPositions.includes(index)}
-                onClick={(card) => {
-                  revealCard(index);      // primero marcamos como revelada
-                  handleCardClick(card);  // pasamos todo el objeto al modal
-                }}
-                showDetails={true}
-              />
+            <Card
+              card={selectedCards[index]}
+              isFlipped={revealedPositions.includes(index)}
+              onClick={(card) => {
+                if (!revealedPositions.includes(index)) {
+                  
+                  revealCard(index);
+                } else {
+                 
+                  handleCardClick(card);
+                }
+              }}
+              showDetails={true}
+            />
 
             </div>
             {revealedPositions.includes(index) && (

@@ -34,7 +34,7 @@ const Card = ({
   const handleImageErrorEvent = (event) => {
     setImageError(true);
     setImageLoaded(false);
-    // Usar una imagen placeholder genérica
+    
     event.target.src =
       'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjMwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjM0IwQTQ1Ii8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxNiIgZmlsbD0iI0ZGRDcwMCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZHk9Ii4zZW0iPjxzdHJvbmc+Q2FydGE8L3N0cm9uZz48L3RleHQ+PC9zdmc+';
   };

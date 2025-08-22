@@ -5,7 +5,7 @@
   padding: 2rem 1rem;
 }
 
-/* Header de la lista de cartas */
+
 .cardlist-header {
   display: flex;
   justify-content: space-between;
@@ -61,7 +61,7 @@
   font-weight: 500;
 }
 
-/* Grilla principal de cartas */
+
 .cardlist-grid {
   display: grid;
   gap: 2rem;
@@ -86,7 +86,7 @@
   }
 }
 
-/* Footer informativo */
+
 .cardlist-footer {
   text-align: center;
   margin-top: 3rem;
@@ -107,7 +107,7 @@
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
-/* Estados de carga, error y vacío */
+
 .cardlist-loading,
 .cardlist-error,
 .cardlist-empty {
@@ -180,7 +180,7 @@
   font-style: italic;
 }
 
-/* Animación de puntos de carga */
+
 .loading-dots {
   display: flex;
   justify-content: center;
@@ -209,7 +209,7 @@
   }
 }
 
-/* Variantes de grilla */
+
 .cardlist-grid.compact {
   gap: 1rem;
   grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
@@ -222,7 +222,7 @@
   margin: 2rem auto;
 }
 
-/* Responsive Design */
+
 @media (max-width: 768px) {
   .cardlist-container {
     padding: 1rem 0.5rem;

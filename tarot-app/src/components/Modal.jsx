@@ -10,7 +10,8 @@ const Modal = ({ isOpen, onClose, meaning }) => {
         <button className="modal-close" onClick={onClose}>✕</button>
         <h2 className="modal-title">{meaning.arcaneName}</h2>
         <p className="modal-text">{meaning.arcaneDescription}</p>
-        {meaning.goddessName && <p>Diosa: {meaning.goddessName}</p>}
+        {meaning.goddessName && <p className="modal-goddesstitle">Diosa: {meaning.goddessName}</p>}
+        <p className="modal-goddess">{meaning.goddessDescription}</p>
       </div>
     </div>
   );

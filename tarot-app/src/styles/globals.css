@@ -1,4 +1,4 @@
-/* Reset y configuración base */
+
 * {
   margin: 0;
   padding: 0;
@@ -31,7 +31,7 @@ body {
   position: relative;
 }
 
-/* Fondo estrellado animado */
+
 body::before {
   content: '';
   position: fixed;

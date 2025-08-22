@@ -37,7 +37,7 @@ import '../styles/Home.css';
 
   return (
     <div className="home-page">
-      {/* Hero Section - Introducción mística */}
+      
       <div className="home-hero">
         <div className="mystic-container">
           <h2 className="hero-title">Bienvenido al Reino de los Arcanos</h2>
@@ -103,7 +103,7 @@ import '../styles/Home.css';
         />
       </div>
 
-      {/* Información adicional */}
+      
       {!loading && cards.length > 0 && (
         <div className="home-info">
           <div className="mystic-container">
