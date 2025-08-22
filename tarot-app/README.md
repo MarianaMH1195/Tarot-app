@@ -115,7 +115,7 @@ El diseño se inspiró en:
 
 ## 🚀 Instrucciones de instalación
 
-* 1. Clonar el repositorio
+ 1. Clonar el repositorio
 ```bash
 git clone <URL-del-repositorio>
 ```
