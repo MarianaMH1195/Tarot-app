@@ -113,9 +113,9 @@ El diseño se inspiró en:
 - Juegos de cartas con animaciones 3D.  
 - Estética esotérica y mágica en interfaces digitales.  
 
-🚀 **Instrucciones de instalación**
+## 🚀 Instrucciones de instalación
 
-## 1. Clonar el repositorio
+* 1. Clonar el repositorio
 ```bash
 git clone <URL-del-repositorio>
 ```
