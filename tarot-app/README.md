@@ -43,7 +43,8 @@ Esta aplicación busca brindar una experiencia mística, atractiva y dinámica p
 
 .card.flipped {
   transform: rotateY(180deg);
-}
+} Efectos 3D
+```
 
 ## Modal interactiva
 
