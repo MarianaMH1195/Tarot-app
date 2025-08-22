@@ -114,7 +114,8 @@ El diseño se inspiró en:
 - Estética esotérica y mágica en interfaces digitales.  
 
 ## 🔗 Estructura de archivos
-
+ 
+```bash
 tarot-app/
 ├── public/
 │ └── assets/ (íconos e imágenes)
@@ -139,6 +140,7 @@ tarot-app/
 ├── package.json
 ├── vite.config.js
 └── README.md
+```
 
 
 ## 💝 Agradecimientos
