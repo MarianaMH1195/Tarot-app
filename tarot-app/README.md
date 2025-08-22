@@ -44,140 +44,109 @@ Esta aplicación busca brindar una experiencia mística, atractiva y dinámica p
 .card.flipped {
   transform: rotateY(180deg);
 }
-Modal interactiva
 
-Ventana emergente para mostrar significado de cada carta.
+## Modal interactiva
 
-Bloqueo de scroll del fondo al abrirse.
+- Ventana emergente con título y texto explicativo.  
+- Bloqueo de scroll del fondo mientras está activa.  
+- Botón accesible para cerrar.  
 
-Botón de cierre accesible.
+## 📚 Librerías y recursos utilizados
 
-📚 Librerías y recursos utilizados
-Librerías JavaScript
+### Librerías JavaScript
+- **React 19**  
+- **React Router DOM 7**  
+- **Vite**  
 
-React 19
+### Recursos multimedia
+- **Imágenes**: Ilustraciones de cartas del Tarot.  
+- **Iconografía**: Emojis para representar posiciones (🕰️ Pasado, 🌟 Presente, 🔮 Futuro).  
 
-React Router DOM 7
+### Recursos de diseño
+- **Paleta de colores**: Tonos oscuros, violetas y dorados para un estilo místico.  
+- **Sombras y brillos**: Para resaltar las cartas al revelarlas.  
+- **Transiciones CSS**: Para la interacción de cartas y modal.  
 
-Vite
+## 🎯 Funcionalidades destacadas
 
-Recursos multimedia
+### Sistema de lectura de cartas
+- Selección manual o aleatoria.  
+- Revelación progresiva de cartas con animación 3D.  
+- Resumen final de la tirada.  
 
-Imágenes: Ilustraciones de cartas del Tarot.
+### Modal de significado
+- Muestra el nombre del arcano, número y descripción.  
+- Información adicional sobre la diosa asociada.  
+- Texto resumido y visualización clara.  
 
-Iconografía: Emojis para representar posiciones (🕰️ Pasado, 🌟 Presente, 🔮 Futuro).
+### Experiencia de usuario
+- Flujo intuitivo y guiado paso a paso.  
+- Animaciones inmersivas.  
+- Interfaz atractiva con iconografía temática.  
 
-Recursos de diseño
+## ✨ Si hubiera tenido más tiempo...
 
-Paleta de colores: Tonos oscuros y místicos.
+Me habría gustado implementar:  
 
-Animaciones CSS: Transiciones suaves en la revelación de cartas.
+- **Más animaciones con JavaScript**:  
+  - Efectos de partículas mágicas.  
+  - Brillos dinámicos en las cartas.  
+  - Transiciones más complejas entre pantallas.  
 
-🎯 Funcionalidades destacadas
-Sistema de lectura de cartas
+- **Experiencia multimedia**:  
+  - Música ambiental relajante.  
+  - Sonidos místicos al revelar cartas.  
 
-Selección manual o aleatoria.
+- **Interactividad avanzada**:  
+  - Posibilidad de guardar tiradas anteriores.  
+  - Compartir lecturas en redes sociales.  
 
-Revelación progresiva con animaciones.
+- **Optimización**:  
+  - Lazy loading de imágenes.  
+  - Mayor soporte para pantallas pequeñas.  
 
-Resumen final de la tirada.
+## 🎨 Inspiración de diseño
 
-Modal de significado
+El diseño se inspiró en:  
+- Barajas tradicionales del Tarot y su iconografía.  
+- Juegos de cartas con animaciones 3D.  
+- Estética esotérica y mágica en interfaces digitales.  
 
-Información textual sobre arcano, número y diosa asociada.
+## 🔗 Estructura de archivos
 
-Descripción resumida con posibilidad de expandirse en vistas de detalle.
-
-Experiencia de usuario
-
-Interfaz intuitiva y clara.
-
-Flujo guiado paso a paso en la lectura.
-
-Estética inmersiva para simular una experiencia de Tarot real.
-
-✨ Si hubiera tenido más tiempo...
-
-Me habría gustado implementar:
-
-Animaciones adicionales:
-
-Partículas mágicas flotantes.
-
-Efectos de aura en torno a las cartas.
-
-Más interactividad:
-
-Música ambiental relajante.
-
-Sonidos místicos al revelar una carta.
-
-Optimización extra:
-
-Lazy loading de imágenes.
-
-Más efectos responsivos en pantallas pequeñas.
-
-🎨 Inspiración de diseño
-
-El diseño se inspiró en:
-
-Estética mística y esotérica del Tarot tradicional.
-
-Juegos de cartas coleccionables con animaciones 3D.
-
-Experiencias digitales de adivinación y horóscopos.
-
-🚀 Instrucciones de instalación
-# 1. Clonar el repositorio
-git clone <URL-del-repositorio>
-
-# 2. Entrar en la carpeta del proyecto
-cd Proyectos
-
-# 3. Instalar dependencias
-npm install
-
-# 4. Iniciar el servidor de desarrollo
-npm run dev
-
-
-La aplicación estará disponible en: http://localhost:5173/
-
-🔗 Estructura de archivos
 tarot-app/
 ├── public/
-│   └── assets/ (imágenes e íconos)
+│ └── assets/ (íconos e imágenes)
 ├── src/
-│   ├── components/
-│   │   ├── Card.jsx
-│   │   ├── CardList.jsx
-│   │   ├── Modal.jsx
-│   │   └── TarotReading.jsx
-│   ├── pages/
-│   │   ├── Home.jsx
-│   │   ├── Detail.jsx
-│   │   └── Reading.jsx
-│   ├── routes/
-│   │   └── enrutador.jsx
-│   ├── services/
-│   │   └── services.js
-│   ├── styles/
-│   │   ├── *.css
-│   ├── App.jsx
-│   └── main.jsx
+│ ├── components/
+│ │ ├── Card.jsx
+│ │ ├── CardList.jsx
+│ │ ├── Modal.jsx
+│ │ └── TarotReading.jsx
+│ ├── pages/
+│ │ ├── Home.jsx
+│ │ ├── Detail.jsx
+│ │ └── Reading.jsx
+│ ├── routes/
+│ │ └── enrutador.jsx
+│ ├── services/
+│ │ └── services.js
+│ ├── styles/
+│ │ ├── *.css
+│ ├── App.jsx
+│ └── main.jsx
 ├── package.json
 ├── vite.config.js
 └── README.md
 
-💝 Agradecimientos
 
-React: Por la construcción modular y dinámica de la aplicación.
+## 💝 Agradecimientos
 
-Vite: Por el entorno de desarrollo veloz.
+- **React**: Por la modularidad en la construcción de la app.  
+- **Vite**: Por la rapidez en el desarrollo.  
+- **Recursos gráficos online**: Por las imágenes de cartas.  
+- **Bootcamp**: Por el aprendizaje y la guía en el desarrollo del proyecto.  
 
-Freepik / recursos gráficos: Por ilustraciones y recursos visuales.
+---
 
-Bootcamp: Por el espacio de aprendizaje y colaboración.
-
-Esta aplicación forma parte de un proyecto académico, creado con 💜 para explorar la magia del Tarot en el mundo digital.
+Esta aplicación forma parte de un proyecto académico, creada con 💜 para llevar la magia del Tarot al mundo digital.  
