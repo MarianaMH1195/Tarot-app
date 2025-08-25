@@ -129,7 +129,7 @@ import '../styles/Detail.css';
       {/* Header con título del arcano */}
       <div className="detail-header">
         <h1 className="detail-title">{card.arcaneName}</h1>
-        <div className="title-decoration">✨ ⭐ ✨</div>
+        <div className="title-decoration"></div>
       </div>
 
       
@@ -144,14 +144,14 @@ import '../styles/Detail.css';
               className={`image-tab ${activeImage === 'arcane' ? 'active' : ''}`}
               onClick={() => handleImageSwitch('arcane')}
             >
-              <span className="tab-icon">🎴</span>
+              
               <span>Arcano</span>
             </button>
             <button
               className={`image-tab ${activeImage === 'goddess' ? 'active' : ''}`}
               onClick={() => handleImageSwitch('goddess')}
             >
-              <span className="tab-icon">👑</span>
+              <span className="tab-icon"></span>
               <span>Diosa</span>
             </button>
           </div>
@@ -239,7 +239,7 @@ import '../styles/Detail.css';
           
           <div className="info-section">
             <h2 className="section-title">
-              <span className="section-icon">🎴</span>
+              
               Significado del Arcano
             </h2>
             <div className="section-content">
@@ -253,7 +253,7 @@ import '../styles/Detail.css';
           {card.goddessName && (
             <div className="info-section">
               <h2 className="section-title">
-                <span className="section-icon">👑</span>
+                
                 {card.goddessName}
               </h2>
               <div className="section-content">

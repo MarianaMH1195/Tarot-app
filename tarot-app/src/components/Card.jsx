@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../styles/Card.css';
+import foto from "../../public/assets/fondo-cartas.png"
 
 /* Representa una carta del tarot con funcionalidad de volteo y navegación al detalle */
 const Card = ({ 
@@ -73,15 +74,7 @@ const Card = ({
       >
         {/* Cara trasera de la carta (oculta) */}
         <div className="card-back">
-          <div className="card-back-design">
-            <div className="card-back-pattern">
-              <span className="mystical-symbol">🌙</span>
-              <span className="mystical-symbol">⭐</span>
-              <span className="mystical-symbol">🌟</span>
-              <span className="mystical-symbol">✨</span>
-            </div>
-            <div className="card-back-border"></div>
-          </div>
+            <img src = {foto} className='imagen'/>
         </div>
 
         {/* Cara frontal (revelada solo si isFlipped=true) */}
@@ -108,7 +101,7 @@ const Card = ({
 
                 {imageError && (
                   <div className="card-image-error">
-                    <span>🎴</span>
+                    
                     <p>Imagen no disponible</p>
                   </div>
                 )}
@@ -136,7 +129,7 @@ const Card = ({
                 
                 {card.goddessName && (
                   <div className="card-goddess-hint">
-                    <span className="goddess-icon">👑</span>
+                    <span className="goddess-icon"></span>
                     <span className="goddess-name">{card.goddessName}</span>
                   </div>
                 )}

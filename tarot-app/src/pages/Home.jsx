@@ -18,11 +18,11 @@ import '../styles/Home.css';
         setLoading(true);
         setError(null);
         
-        console.log('🏠 Cargando vista principal...');
+        console.log(' Cargando vista principal...');
         const fetchedCards = await getAllCards();
         
         setCards(fetchedCards);
-        console.log(`✅ ${fetchedCards.length} cartas cargadas en Home`);
+        console.log(` ${fetchedCards.length} cartas cargadas en Home`);
         
       } catch (err) {
         console.error('❌ Error en Home:', err);

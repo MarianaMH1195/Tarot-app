@@ -64,24 +64,9 @@
   border: 2px solid var(--golden-soft);
 }
 
-.card-back-design {
-  width: 100%;
-  height: 100%;
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
 
-.card-back-pattern {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
-  gap: 2rem;
-  width: 60%;
-  height: 60%;
-  animation: float 3s ease-in-out infinite alternate;
-}
+
+
 
 .mystical-symbol {
   font-size: 2rem;
@@ -111,17 +96,6 @@
 @keyframes twinkle {
   0% { opacity: 0.6; transform: scale(1); }
   100% { opacity: 1; transform: scale(1.1); }
-}
-
-.card-back-border {
-  position: absolute;
-  top: 10px;
-  left: 10px;
-  right: 10px;
-  bottom: 10px;
-  border: 1px solid rgba(255, 215, 0, 0.3);
-  border-radius: 10px;
-  pointer-events: none;
 }
 
 
@@ -357,4 +331,11 @@
   .card-name {
     font-size: 0.8rem;
   }
+  
+  }
+
+.imagen {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; 
 }
