@@ -1,181 +1,95 @@
-# 🔮 Tarot-App - Proyecto de Lectura Interactiva 🔮
+# Portal del Destino - Tarot Interactivo
 
-## 🌟 Sobre esta aplicación
+## Sobre esta aplicación
 
-**Tarot-App** es una aplicación interactiva que permite realizar una lectura de cartas en formato **Pasado, Presente y Futuro**.  
-El usuario puede seleccionar cartas al azar.  
-Cada carta se revela con un efecto visual y, al hacer clic sobre una carta ya revelada, aparece una ventana modal que muestra su significado y detalles asociados.
+**Portal del Destino** (anteriormente Tarot-App) es una experiencia mística digital que permite conectar con tu futuro a través de los arcanos.
+La aplicación ofrece una lectura interactiva en formato **Pasado, Presente y Futuro**, envuelta en una atmósfera inmersiva de "Espacio Profundo" y estética Noir.
 
-Esta aplicación busca brindar una experiencia mística, atractiva y dinámica para quienes disfrutan del Tarot.
+## Características principales
 
-## 🎯 Características principales
+- **Experiencia Inmersiva**: Fondo 3D interactivo con constelaciones y nubulosas (Three.js).
+- **Animaciones Cinemáticas**: Barajado realista y efectos de cartas con Anime.js.
+- **Estética Premium**: Diseño "Noir/Monochrome" con tipografías elegantes (Cinzel, Garamond) y efectos de vidrio (Glassmorphism).
+- **Lectura Intuitiva**: Selección manual de cartas con reverso interactivo.
+- **Interpretación Profunda**: Modales detallados con significados y arquetipos de diosas contemporáneas.
 
-- **Selección de cartas**: Opción manual o aleatoria de 3 cartas.  
-- **Cartas interactivas 3D**: Efecto flip al revelar cada carta.  
-- **Modal interactiva**: Información detallada del arcano al hacer clic sobre la carta revelada.  
-- **Diseño responsivo**: Compatible con dispositivos móviles y escritorio.  
-- **Flujo guiado**: Preparación → Selección → Revelación → Resumen de lectura.  
+## Tecnologías utilizadas
 
-## 🛠️ Tecnologías utilizadas
+### Core
+- **React 19**: Framework principal para componentes dinámicos.
+- **Vite**: Build tool de última generación.
+- **React Router DOM 7**: Navegación SPA fluida.
 
-### React 19
-- Componentes reutilizables y dinámicos.  
-- Manejo de estado con `useState`.  
-- Navegación entre páginas con **React Router DOM 7**.  
+### Gráficos y Animación
+- **Three.js**: Renderizado de fondo espacial 3D (Estrellas, Nebulosas, Constelaciones).
+- **Anime.js**: Motor de animaciones complejas para el mazo de cartas.
 
-### Vite
-- Entorno de desarrollo moderno y optimizado.  
-- Servidor de desarrollo rápido y configuración ligera.  
+### Diseño
+- **CSS3 Moderno**: Variables CSS para temas, Flexbox/Grid, y efectos de Backdrop-filter.
+- **Diseño Responsivo**: Adaptable a móviles y escritorio.
 
-### CSS3
-- **Efectos visuales avanzados**: Animaciones de flip para cartas.  
-- **Layout responsivo**: Adaptación automática a diferentes pantallas.  
-- **Sombras y transiciones**: Estética inmersiva.  
+## Estética "Noir & Deep Space"
 
-## 🎨 Técnicas de diseño implementadas
+El diseño ha evolucionado hacia una identidad visual sofisticada:
+- **Paleta Monochrome**: Negro Puro, Carbón, Plata y Pergamino.
+- **Atmósfera Espacial**: Un fondo vivo que respira, con estrellas parpadeantes y profundidad cósmica.
+- **Interfaz Minimalista**: Elementos semitransparentes que flotan sobre el universo.
 
-### Efectos 3D
-```css
-.card {
-  transform-style: preserve-3d;
-  transition: transform 0.6s;
-}
+## Instrucciones de instalación
 
-.card.flipped {
-  transform: rotateY(180deg);
-} Efectos 3D
-```
-
-## Modal interactiva
-
-- Ventana emergente con título y texto explicativo.  
-- Bloqueo de scroll del fondo mientras está activa.  
-- Botón accesible para cerrar.  
-
-## 📚 Librerías y recursos utilizados
-
-### Librerías JavaScript
-- **React 19**  
-- **React Router DOM 7**  
-- **Vite**  
-
-### Recursos multimedia
-- **Imágenes**: Ilustraciones de cartas del Tarot.  
-- **Iconografía**: Emojis para representar posiciones (🕰️ Pasado, 🌟 Presente, 🔮 Futuro).  
-
-### Recursos de diseño
-- **Paleta de colores**: Tonos oscuros, violetas y dorados para un estilo místico.  
-- **Sombras y brillos**: Para resaltar las cartas al revelarlas.  
-- **Transiciones CSS**: Para la interacción de cartas y modal.  
-
-## 🎯 Funcionalidades destacadas
-
-### Sistema de lectura de cartas
-- Selección manual o aleatoria.  
-- Revelación progresiva de cartas con animación 3D.  
-- Resumen final de la tirada.  
-
-### Modal de significado
-- Muestra el nombre del arcano, número y descripción.  
-- Información adicional sobre la diosa asociada.  
-- Texto resumido y visualización clara.  
-
-### Experiencia de usuario
-- Flujo intuitivo y guiado paso a paso.  
-- Animaciones inmersivas.  
-- Interfaz atractiva con iconografía temática.  
-
-## ✨ Si hubiera tenido más tiempo...
-
-Me habría gustado implementar:  
-
-- **Más animaciones con JavaScript**:  
-  - Efectos de partículas mágicas.  
-  - Brillos dinámicos en las cartas.  
-  - Transiciones más complejas entre pantallas.  
-
-- **Experiencia multimedia**:  
-  - Música ambiental relajante.  
-  - Sonidos místicos al revelar cartas.  
-
-- **Interactividad avanzada**:  
-  - Posibilidad de guardar tiradas anteriores.  
-  - Compartir lecturas en redes sociales.  
-
-- **Optimización**:  
-  - Lazy loading de imágenes.  
-  - Mayor soporte para pantallas pequeñas.  
-
-## 🎨 Inspiración de diseño
-
-El diseño se inspiró en:  
-- Barajas tradicionales del Tarot y su iconografía.  
-- Juegos de cartas con animaciones 3D.  
-- Estética esotérica y mágica en interfaces digitales.  
-
-## 🚀 Instrucciones de instalación
-
- 1. Clonar el repositorio
+1. Clonar el repositorio
 ```bash
 git clone <URL-del-repositorio>
 ```
 2. Entrar en la carpeta del proyecto
 ```bash
-Copiar
-Editar
-cd Proyectos
+cd Tarot
 ```
 3. Instalar dependencias
 ```bash
-Copiar
-Editar
 npm install
 ```
 4. Iniciar el servidor de desarrollo
 ```bash
-Copiar
-Editar
 npm run dev
 ```
-La aplicación estará disponible en: http://localhost:5173/
+La aplicación estará disponible en: http://localhost:5173/ (o el puerto que asigne Vite).
 
-## 🔗 Estructura de archivos
- 
+## Estructura del Proyecto
+
 ```bash
-tarot-app/
+Portal-del-Destino/
 ├── public/
-│ └── assets/ (íconos e imágenes)
+│ ├── logo.svg          # Nuevo logo "Portal"
+│ └── assets/
 ├── src/
 │ ├── components/
-│ │ ├── Card.jsx
-│ │ ├── CardList.jsx
-│ │ ├── Modal.jsx
-│ │ └── TarotReading.jsx
+│ │ ├── Card.jsx        # Carta individual interactiva
+│ │ ├── CardList.jsx    # Grid de cartas
+│ │ ├── Modal.jsx       # Detalle de la carta
+│ │ ├── Navbar.jsx      # Navegación principal
+│ │ ├── TarotReading.jsx # Lógica de la lectura (Mesa de trabajo)
+│ │ └── ThreeBackground.jsx # Fondo 3D (Three.js)
 │ ├── pages/
-│ │ ├── Home.jsx
-│ │ ├── Detail.jsx
-│ │ └── Reading.jsx
-│ ├── routes/
-│ │ └── enrutador.jsx
+│ │ ├── HomePage.jsx    # Landing page "Portal del Destino"
+│ │ ├── ReadingPage.jsx # Página de lectura
+│ │ └── NotFound.jsx
 │ ├── services/
-│ │ └── services.js
+│ │ └── services.js     # Lógica de negocio / API simulada
 │ ├── styles/
-│ │ ├── *.css
-│ ├── App.jsx
-│ └── main.jsx
+│ │ ├── globals.css     # Variables y estilos bases (Theme Noir)
+│ │ └── *.css           # Estilos por componente
+│ ├── App.jsx           # Layout principal
+│ └── main.jsx          # Punto de entrada
 ├── package.json
-├── vite.config.js
 └── README.md
 ```
 
+## Agradecimientos
 
-## 💝 Agradecimientos
-
-- **React**: Por la modularidad en la construcción de la app.  
-- **Vite**: Por la rapidez en el desarrollo.  
-- **Recursos gráficos online**: Por las imágenes de cartas.  
-- **Bootcamp**: Por el aprendizaje y la guía en el desarrollo del proyecto.  
+- **Factoría F5**: Por el impulso educativo.
+- **Comunidad Open Source**: Por herramientas increíbles como Three.js y Anime.js.
 
 ---
 
-Esta aplicación forma parte de un proyecto académico, creada con 💜 para llevar la magia del Tarot al mundo digital.  
+*"La puerta a tu futuro"* - **Portal del Destino**

@@ -6,7 +6,7 @@ const Navbar = () => {
         <nav className="navbar">
             <div className="navbar-container">
                 <Link to="/" className="navbar-logo">
-                    🔮 Tarot STEM
+                    Portal del Destino
                 </Link>
                 <ul className="navbar-menu">
                     <li>

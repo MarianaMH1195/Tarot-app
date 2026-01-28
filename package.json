@@ -1,5 +1,5 @@
 {
-  "name": "tarot-app",
+  "name": "portal-del-destino",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -10,9 +10,11 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "animejs": "^3.2.1",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
-    "react-router-dom": "^7.8.0"
+    "react-router-dom": "^7.8.0",
+    "three": "^0.182.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.33.0",
