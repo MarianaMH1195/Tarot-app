@@ -1,16 +1,16 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../styles/Card.css';
-import foto from "../../public/assets/fondo-cartas.png"
+const foto = "/assets/fondo-cartas.png"
 
 /* Representa una carta del tarot con funcionalidad de volteo y navegación al detalle */
-const Card = ({ 
-  card, 
-  isFlipped = false,   
-  onClick, 
+const Card = ({
+  card,
+  isFlipped = false,
+  onClick,
   showDetails = true,
   className = '',
-  position = null 
+  position = null
 }) => {
   const [imageLoaded, setImageLoaded] = useState(false);
   const [imageError, setImageError] = useState(false);
@@ -21,7 +21,7 @@ const Card = ({
     if (onClick) {
       onClick(card);
     } else if (showDetails) {
-      navigate(`/carta/${card.id}`);
+      navigate(`/card/${card.id}`);
     }
   };
 
@@ -35,7 +35,7 @@ const Card = ({
   const handleImageErrorEvent = (event) => {
     setImageError(true);
     setImageLoaded(false);
-    
+
     event.target.src =
       'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjMwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjM0IwQTQ1Ii8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxNiIgZmlsbD0iI0ZGRDcwMCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZHk9Ii4zZW0iPjxzdHJvbmc+Q2FydGE8L3N0cm9uZz48L3RleHQ+PC9zdmc+';
   };
@@ -52,7 +52,7 @@ const Card = ({
 
   return (
     <div className={`card-container ${className}`}>
-      
+
       {position && (
         <div className="card-position-label">
           {getPositionText()}
@@ -74,14 +74,14 @@ const Card = ({
       >
         {/* Cara trasera de la carta (oculta) */}
         <div className="card-back">
-            <img src = {foto} className='imagen'/>
+          <img src={foto} className='imagen' />
         </div>
 
         {/* Cara frontal (revelada solo si isFlipped=true) */}
         {isFlipped && (
           <div className="card-front">
             <div className="card-content">
-             
+
               <div className="card-image-container">
                 {!imageLoaded && !imageError && (
                   <div className="card-image-loader">
@@ -101,13 +101,13 @@ const Card = ({
 
                 {imageError && (
                   <div className="card-image-error">
-                    
+
                     <p>Imagen no disponible</p>
                   </div>
                 )}
               </div>
 
-              
+
               <div className="card-info">
                 <div className="card-number">
                   {card.arcaneNumber !== undefined ? `${card.arcaneNumber}` : '?'}
@@ -121,12 +121,12 @@ const Card = ({
                   <p className="card-description">
                     {card.arcaneDescription
                       ? card.arcaneDescription.substring(0, 80) +
-                        (card.arcaneDescription.length > 80 ? '...' : '')
+                      (card.arcaneDescription.length > 80 ? '...' : '')
                       : 'Los misterios de esta carta esperan ser revelados...'}
                   </p>
                 )}
 
-                
+
                 {card.goddessName && (
                   <div className="card-goddess-hint">
                     <span className="goddess-icon"></span>
@@ -139,7 +139,7 @@ const Card = ({
         )}
       </div>
 
-      
+
       <div className="card-glow"></div>
     </div>
   );
