@@ -53,7 +53,11 @@ npm install
 ```bash
 npm run dev
 ```
-La aplicación estará disponible en: http://localhost:5173/ (o el puerto que asigne Vite).
+
+## Despliegue
+
+La aplicación se despliega automáticamente en GitHub Pages.
+**Ver Demo en vivo**: [https://MarianaMH1195.github.io/Tarot-app/](https://MarianaMH1195.github.io/Tarot-app/)
 
 ## Estructura del Proyecto
 
