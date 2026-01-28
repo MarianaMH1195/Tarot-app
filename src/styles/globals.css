@@ -108,10 +108,12 @@ body {
 .app-footer {
   text-align: center;
   padding: 1.5rem;
-  background: rgba(11, 27, 63, 0.8);
-  border-top: 1px solid var(--silver-light);
-  color: var(--silver-light);
+  /* Fondo Noir acorde a la nueva paleta */
+  background: rgba(10, 10, 10, 0.95);
+  border-top: 1px solid rgba(192, 192, 192, 0.1);
+  color: var(--silver);
   font-size: 0.9rem;
+  font-family: var(--font-text);
 }
 
 /* Botones místicos globales */
