@@ -2,7 +2,7 @@
 
 ## Sobre esta aplicación
 
-**Portal del Destino** (anteriormente Tarot-App) es una experiencia mística digital que permite conectar con tu futuro a través de los arcanos.
+**Portal del Destino**es una experiencia mística digital que permite conectar con tu futuro a través de los arcanos.
 La aplicación ofrece una lectura interactiva en formato **Pasado, Presente y Futuro**, envuelta en una atmósfera inmersiva de "Espacio Profundo" y estética Noir.
 
 ## Características principales
