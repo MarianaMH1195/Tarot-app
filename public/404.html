@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portal del Destino</title>
+
+    <!-- Script para redirigir manteniendo la ruta -->
+    <script>
+        // Guarda la ruta actual en sessionStorage
+        sessionStorage.setItem('redirectPath', location.pathname + location.search + location.hash);
+        // Redirige al index.html
+        location.replace(location.origin + location.pathname.split('/').slice(0, -1).join('/') + '/');
+    </script>
+</head>
+
+<body>
+    <!-- Mensaje de carga mientras redirige -->
+    <div style="
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      background: #0a0a0a;
+      color: #f5f5f5;
+      font-family: 'Cinzel', serif;
+      text-align: center;
+    ">
+        <div>
+            <h1 style="font-size: 2rem; margin-bottom: 1rem;">Portal del Destino</h1>
+            <p style="font-size: 1.2rem;">Redirigiendo...</p>
+        </div>
+    </div>
+</body>
+
+</html>

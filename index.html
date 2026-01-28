@@ -1,22 +1,38 @@
 <!doctype html>
 <html lang="es">
-  <head>
-    <meta property="og:title" content="Nombre del proyecto" />
-    <meta property="og:description" content="Una breve descripción" />
-    <meta property="og:image" content="/image.png" />
-    <meta property="og:url" content="https://tusite.com" />
-    <meta property="og:type" content="website" />
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/logo.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Portal del Destino</title>
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
+
+<head>
+  <meta property="og:title" content="Nombre del proyecto" />
+  <meta property="og:description" content="Una breve descripción" />
+  <meta property="og:image" content="/image.png" />
+  <meta property="og:url" content="https://tusite.com" />
+  <meta property="og:type" content="website" />
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/logo.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portal del Destino</title>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&display=swap"
+    rel="stylesheet">
+
+  <!-- Script para restaurar la ruta después de redirección desde 404.html -->
+  <script>
+    (function () {
+      var redirect = sessionStorage.getItem('redirectPath');
+      if (redirect && redirect !== location.pathname) {
+        sessionStorage.removeItem('redirectPath');
+        history.replaceState(null, null, redirect);
+      }
+    })();
+  </script>
+</head>
+
+<body>
+  <div id="root"></div>
+  <script type="module" src="/src/main.jsx"></script>
+</body>
+
 </html>
