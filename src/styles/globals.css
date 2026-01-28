@@ -1,4 +1,3 @@
-
 * {
   margin: 0;
   padding: 0;
@@ -6,20 +5,43 @@
 }
 
 :root {
-  /* Paleta de colores mística */
-  --primary-purple: #1c0221e4;
-  --golden-soft: #FFD700;
-  --night-blue: #0B1B3F;
-  --silver-light: #C0C0C0;
-  --ivory-white: #F8F5E4;
-  
+  /* Nueva Paleta "Noir/Mystic" (User Request) */
+  --black-pure: #0a0a0a;
+  --charcoal: #1a1a1a;
+  --silver: #c0c0c0;
+  --gray-light: #a8a8a8;
+  --parchment: #e8d5b7;
+
+  /* Mapeo a sistema existente */
+  --midnight-deep: var(--black-pure);
+  /* Fondo principal */
+  --blue-mystic: var(--charcoal);
+  /* Fondo secundario/capas */
+  --ultramarine: var(--silver);
+  /* Acento secundario (antes azul fuerte) */
+  --sky-celestial: var(--gray-light);
+  /* Detalles sutiles */
+  --parchment: #e8d5b7;
+  /* Color principal de texto/oro */
+
+  /* Compatibilidad Legacy */
+  --primary-purple: var(--midnight-deep);
+  --night-blue: var(--blue-mystic);
+  --golden-soft: var(--parchment);
+  --silver-light: var(--silver);
+  --ivory-white: #e0e0e0;
+  /* Off-white para leer mejor sobre fondo muy oscuro */
+
+  /* Variables semánticas */
+  --color-accent: var(--parchment);
+
   /* Tipografías */
   --font-title: 'Cinzel Decorative', serif;
   --font-text: 'EB Garamond', serif;
-  
-  /* Sombras y efectos */
-  --golden-glow: 0 0 20px rgba(255, 215, 0, 0.3);
-  --purple-shadow: 0 4px 20px rgba(59, 10, 69, 0.4);
+
+  /* Sombras y efectos actualizados para Dark Mode */
+  --golden-glow: 0 0 15px rgba(232, 213, 183, 0.2);
+  --purple-shadow: 0 4px 20px rgba(0, 0, 0, 0.8);
 }
 
 body {
@@ -29,32 +51,6 @@ body {
   min-height: 100vh;
   overflow-x: hidden;
   position: relative;
-}
-
-
-body::before {
-  content: '';
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-image: 
-    radial-gradient(2px 2px at 20px 30px, var(--golden-soft), transparent),
-    radial-gradient(2px 2px at 40px 70px, rgba(255, 215, 0, 0.4), transparent),
-    radial-gradient(1px 1px at 90px 40px, var(--silver-light), transparent),
-    radial-gradient(1px 1px at 130px 80px, rgba(192, 192, 192, 0.4), transparent),
-    radial-gradient(2px 2px at 160px 30px, var(--golden-soft), transparent);
-  background-repeat: repeat;
-  background-size: 200px 100px;
-  animation: sparkle 20s linear infinite;
-  pointer-events: none;
-  z-index: -1;
-}
-
-@keyframes sparkle {
-  0% { transform: translateY(0); }
-  100% { transform: translateY(-200px); }
 }
 
 /* Layout principal de la aplicación */
@@ -84,8 +80,13 @@ body::before {
 }
 
 @keyframes titleGlow {
-  0% { text-shadow: 0 0 20px rgba(255, 215, 0, 0.3); }
-  100% { text-shadow: 0 0 30px rgba(255, 215, 0, 0.6), 0 0 40px rgba(255, 215, 0, 0.3); }
+  0% {
+    text-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+  }
+
+  100% {
+    text-shadow: 0 0 30px rgba(255, 215, 0, 0.6), 0 0 40px rgba(255, 215, 0, 0.3);
+  }
 }
 
 .app-subtitle {
@@ -115,9 +116,9 @@ body::before {
 
 /* Botones místicos globales */
 .mystic-button {
-  background: linear-gradient(45deg, var(--primary-purple), var(--night-blue));
-  color: var(--golden-soft);
-  border: 2px solid var(--golden-soft);
+  background: linear-gradient(45deg, var(--blue-mystic), var(--midnight-deep));
+  color: var(--parchment);
+  border: 1px solid var(--ultramarine);
   padding: 12px 24px;
   border-radius: 25px;
   font-family: var(--font-title);
@@ -128,14 +129,16 @@ body::before {
   display: inline-block;
   text-align: center;
   font-size: 1rem;
-  box-shadow: var(--golden-glow);
+  box-shadow: 0 0 15px rgba(4, 55, 242, 0.3);
+  /* Ultramarine glow */
 }
 
 .mystic-button:hover {
-  background: linear-gradient(45deg, var(--golden-soft), #ffed4a);
-  color: var(--primary-purple);
+  background: linear-gradient(45deg, var(--ultramarine), var(--blue-mystic));
+  color: #fff;
+  border-color: var(--sky-celestial);
   transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(255, 215, 0, 0.4);
+  box-shadow: 0 0 25px rgba(4, 55, 242, 0.6);
 }
 
 .mystic-button:active {
@@ -159,8 +162,15 @@ body::before {
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .slide-in {
@@ -168,8 +178,15 @@ body::before {
 }
 
 @keyframes slideIn {
-  from { opacity: 0; transform: translateX(-30px); }
-  to { opacity: 1; transform: translateX(0); }
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
 /* Responsive Design */
@@ -177,11 +194,11 @@ body::before {
   .app-title {
     font-size: 2rem;
   }
-  
+
   .app-main {
     padding: 1rem;
   }
-  
+
   .mystic-container {
     padding: 1rem;
     margin: 0.5rem 0;
@@ -192,7 +209,7 @@ body::before {
   .app-title {
     font-size: 1.5rem;
   }
-  
+
   .app-subtitle {
     font-size: 1rem;
   }

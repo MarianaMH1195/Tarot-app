@@ -5,6 +5,7 @@
   padding: 2rem 1rem;
   animation: fadeIn 0.8s ease-in;
 }
+
 .reading-preparation {
   text-align: center;
   animation: slideIn 0.8s ease-out;
@@ -511,84 +512,85 @@
   .tarot-reading {
     padding: 1rem 0.5rem;
   }
-  
+
   .preparation-title,
   .complete-title {
     font-size: 2rem;
   }
-  
+
   .selection-title,
   .revelation-title {
     font-size: 1.8rem;
   }
-  
+
   .reading-positions {
     grid-template-columns: 1fr;
     gap: 1.5rem;
   }
-  
+
   .reading-position {
     padding: 1.5rem;
   }
-  
+
   .position-card-slot {
     min-height: 250px;
   }
-  
+
   .empty-slot {
     width: 130px;
     height: 195px;
   }
-  
+
   .cards-grid {
     grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
     gap: 1rem;
   }
-  
+
   .summary-cards {
     grid-template-columns: 1fr;
     gap: 1rem;
   }
-  
+
   .positions-preview {
     grid-template-columns: 1fr;
     gap: 1rem;
   }
-  
+
   .preparation-content {
     padding: 2rem 1.5rem;
   }
-  
+
   .reading-summary {
     padding: 2rem 1.5rem;
   }
 }
 
 @media (max-width: 480px) {
+
   .preparation-title,
   .complete-title {
     font-size: 1.7rem;
   }
-  
+
   .position-header h3 {
     font-size: 1.2rem;
   }
-  
+
   .empty-slot {
     width: 110px;
     height: 165px;
   }
-  
+
   .empty-slot .slot-icon {
     font-size: 2rem;
   }
-  
+
   .mystic-button.large {
     font-size: 1rem;
     padding: 14px 28px;
     min-width: 200px;
   }
-  
+
   .position-preview .position-icon {
     font-size: 2rem;
   }
@@ -596,7 +598,7 @@
 
 
 .mystic-button.primary.large {
-   background: linear-gradient(45deg, var(--golden-soft), #ffed4a);
+  background: linear-gradient(45deg, var(--golden-soft), #ffed4a);
   color: var(--primary-purple);
   font-size: 1.1rem;
   padding: 16px 32px;
@@ -609,13 +611,48 @@
   animation: mysticPulse 1.5s infinite;
 }
 
- 
+
 
 .mystic-button.primary.large:hover {
   transform: scale(1.08);
- 
 }
 
+.summary-description {
+  font-family: var(--font-text);
+  color: var(--ivory-white);
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin: 0.5rem 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  line-clamp: 4;
+  /* Fix lint warning */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
 
+/* Shuffle Effects handled by Anime.js */
+.card-gap {
+  width: 150px;
+  /* Match standard card size in grid */
+  height: 225px;
+  background: rgba(0, 0, 0, 0.1);
+  border: 1px dashed rgba(255, 215, 0, 0.1);
+  border-radius: 15px;
+  margin: 0.5rem;
+}
 
+@media (max-width: 768px) {
+  .card-gap {
+    width: 130px;
+    height: 195px;
+  }
+}
 
+@media (max-width: 480px) {
+  .card-gap {
+    width: 110px;
+    height: 165px;
+  }
+}

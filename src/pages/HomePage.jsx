@@ -6,7 +6,7 @@ import '../styles/Home.css';
 
 /* Muestra todas las cartas del tarot boca abajo y permite navegación a otras funcionalidades*/
 
-  const Home = () => {
+const Home = () => {
   const [cards, setCards] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -17,13 +17,13 @@ import '../styles/Home.css';
       try {
         setLoading(true);
         setError(null);
-        
+
         console.log(' Cargando vista principal...');
         const fetchedCards = await getAllCards();
-        
+
         setCards(fetchedCards);
         console.log(` ${fetchedCards.length} cartas cargadas en Home`);
-        
+
       } catch (err) {
         console.error('❌ Error en Home:', err);
         setError(err.message);
@@ -37,29 +37,32 @@ import '../styles/Home.css';
 
   return (
     <div className="home-page">
-      
+
       <div className="home-hero">
         <div className="mystic-container">
-          <h2 className="hero-title">Bienvenido al Reino de los Arcanos</h2>
+          <h2 className="hero-title">Portal del Destino</h2>
+          <p className="hero-subtitle" style={{ fontSize: '1.5rem', color: 'var(--parchment)', marginBottom: '1rem', fontStyle: 'italic' }}>
+            "La puerta a tu futuro"
+          </p>
           <p className="hero-description">
-            Explora los 22 Arcanos Mayores del Tarot y descubre los secretos que conectan 
-            cada carta con las diosas contemporáneas. Cada arcano encierra sabiduría ancestral 
+            Explora los 22 Arcanos Mayores del Tarot y descubre los secretos que conectan
+            cada carta con las diosas contemporáneas. Cada arcano encierra sabiduría ancestral
             y guía espiritual para iluminar tu camino.
           </p>
-          
+
           {/* Botones de navegación principales */}
           <div className="hero-actions">
             <Link to="/lectura" className="mystic-button primary">
-            Iniciar Lectura
+              Iniciar Lectura
             </Link>
-            <button 
+            <button
               className="mystic-button secondary"
               onClick={() => window.scrollTo({
                 top: document.querySelector('.cardlist-container')?.offsetTop - 100,
                 behavior: 'smooth'
               })}
             >
-            Explorar Cartas
+              Explorar Cartas
             </button>
           </div>
         </div>
@@ -103,7 +106,7 @@ import '../styles/Home.css';
         />
       </div>
 
-      
+
       {!loading && cards.length > 0 && (
         <div className="home-info">
           <div className="mystic-container">
@@ -113,7 +116,7 @@ import '../styles/Home.css';
                 <div className="info-icon"></div>
                 <h4>Explora</h4>
                 <p>
-                  Haz clic en cualquier carta para revelar su significado, 
+                  Haz clic en cualquier carta para revelar su significado,
                   imagen y la diosa contemporánea asociada.
                 </p>
               </div>
@@ -121,7 +124,7 @@ import '../styles/Home.css';
                 <div className="info-icon"></div>
                 <h4>Consulta</h4>
                 <p>
-                  Usa la función de lectura para obtener una tirada de 
+                  Usa la función de lectura para obtener una tirada de
                   3 cartas: Pasado, Presente y Futuro.
                 </p>
               </div>
@@ -129,7 +132,7 @@ import '../styles/Home.css';
                 <div className="info-icon"></div>
                 <h4>Reflexiona</h4>
                 <p>
-                  Medita sobre los mensajes de las cartas y su conexión 
+                  Medita sobre los mensajes de las cartas y su conexión
                   con las energías femeninas divinas.
                 </p>
               </div>
