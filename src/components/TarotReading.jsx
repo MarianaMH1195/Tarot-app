@@ -8,7 +8,7 @@ const TarotReading = (props) => {
   const [cards, setCards] = useState([]);
   const [selectedCards, setSelectedCards] = useState([]);
   const [readingStep, setReadingStep] = useState('preparation');
-  const [loading, setLoading] = useState(true); 
+  const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [revealedPositions, setRevealedPositions] = useState([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -20,12 +20,26 @@ const TarotReading = (props) => {
     { key: 'futuro', name: 'Futuro', icon: '🔮', description: 'Potencialidades y caminos que se abren ante ti' }
   ];
 
+  /* Mezcla las cartas disponibles para dar aleatoriedad */
+  const shuffleDeck = () => {
+    setCards(prevCards => {
+      const newCards = [...prevCards];
+      for (let i = newCards.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [newCards[i], newCards[j]] = [newCards[j], newCards[i]];
+      }
+      return newCards;
+    });
+  };
+
   useEffect(() => {
     const fetchAllCards = async () => {
       try {
         setLoading(true);
         const all = await getAllCards();
-        setCards(all);
+        // Mezclar inicialmente
+        const shuffled = [...all].sort(() => Math.random() - 0.5);
+        setCards(shuffled);
         setError(null);
       } catch (err) {
         setError('No se pudieron cargar las cartas. Intenta recargar la página.');
@@ -37,7 +51,7 @@ const TarotReading = (props) => {
   }, []);
 
   const startReading = async () => {
-    
+
     if (cards.length === 0) {
       setError('Las cartas no están disponibles. Por favor, intenta de nuevo más tarde.');
       return;
@@ -47,19 +61,6 @@ const TarotReading = (props) => {
     setSelectedCards([]);
     setRevealedPositions([]);
     setReadingStep('selection');
-  };
-
-  const chooseRandomThree = async () => {
-    try {
-      if (cards.length < 3) {
-        throw new Error('No hay suficientes cartas para una lectura.');
-      }
-      const randomSelection = await getRandomCards(3);
-      setSelectedCards(randomSelection);
-      setReadingStep('revelation');
-    } catch (err) {
-      setError(err.message || 'No se pudieron seleccionar las cartas.');
-    }
   };
 
   const selectCardForPosition = (card, positionIndex) => {
@@ -84,7 +85,7 @@ const TarotReading = (props) => {
     setModalMeaning(card);
     setIsModalOpen(true);
   };
-  
+
   const handleCloseModal = () => {
     setIsModalOpen(false);
     setModalMeaning('');
@@ -119,7 +120,7 @@ const TarotReading = (props) => {
             tu situación actual y las potencialidades que aguardan.
           </p>
           <p>
-            Tómate un momento para centrar tu energía y formular mentalmente 
+            Tómate un momento para centrar tu energía y formular mentalmente
             una pregunta o área de tu vida sobre la que deseas obtener guía.
           </p>
         </div>
@@ -132,7 +133,7 @@ const TarotReading = (props) => {
             </div>
           ))}
         </div>
-        <button 
+        <button
           className="mystic-button primary large"
           onClick={startReading}
           disabled={loading || cards.length === 0}
@@ -147,16 +148,16 @@ const TarotReading = (props) => {
     <div className="reading-selection">
       <h2 className="selection-title">Selecciona las Cartas para tu Lectura</h2>
       <p className="selection-instructions">
-        Haz clic en una carta y luego en la posición donde deseas colocarla, o usa el botón para seleccionar 3 aleatorias.
+        Concéntrate en tu pregunta, baraja el mazo y selecciona 3 cartas intuitivamente.
       </p>
 
       <div style={{ textAlign: 'center', marginBottom: '2rem' }}>
-        <button 
+        <button
           className="mystic-button primary"
-          onClick={chooseRandomThree}
-          disabled={cards.length < 3}
+          onClick={shuffleDeck}
+          disabled={cards.length === 0}
         >
-           Elegir 3 Aleatorias
+          Barajar Mazo
         </button>
       </div>
 
@@ -169,20 +170,18 @@ const TarotReading = (props) => {
             </div>
             <div className="position-card-slot">
               {selectedCards[index] ? (
-<Card
-  card={selectedCards[index]}
-  isFlipped={revealedPositions.includes(index)}
-  onClick={(card) => {
-    revealCard(index);
- 
-  }}
-  showDetails={true}
-/>
-              
+                <Card
+                  card={selectedCards[index]}
+                  isFlipped={revealedPositions.includes(index)}
+                  onClick={(card) => {
+                    revealCard(index);
+                  }}
+                  showDetails={true}
+                />
               ) : (
                 <div className="empty-slot">
                   <span className="slot-icon">{position.icon}</span>
-                  
+                  <p>Selecciona una carta</p>
                 </div>
               )}
             </div>
@@ -193,8 +192,8 @@ const TarotReading = (props) => {
 
       {cards.length > 0 && (
         <div className="available-cards">
-          <h3>Cartas Disponibles</h3>
-          <div className="cards-grid">
+          <h3>Mazo de Tarot</h3>
+          <div className="cards-grid deck-view">
             {cards.map(card => (
               <div key={card.id} className="selectable-card" onClick={() => {
                 const emptyIndex = selectedCards.findIndex(c => !c);
@@ -223,20 +222,20 @@ const TarotReading = (props) => {
               <h3>{position.name}</h3>
             </div>
             <div className="position-card-slot">
-            <Card
-              card={selectedCards[index]}
-              isFlipped={revealedPositions.includes(index)}
-              onClick={(card) => {
-                if (!revealedPositions.includes(index)) {
-                  
-                  revealCard(index);
-                } else {
-                 
-                  handleCardClick(card);
-                }
-              }}
-              showDetails={true}
-            />
+              <Card
+                card={selectedCards[index]}
+                isFlipped={revealedPositions.includes(index)}
+                onClick={(card) => {
+                  if (!revealedPositions.includes(index)) {
+
+                    revealCard(index);
+                  } else {
+
+                    handleCardClick(card);
+                  }
+                }}
+                showDetails={true}
+              />
 
             </div>
             {revealedPositions.includes(index) && (
@@ -256,11 +255,11 @@ const TarotReading = (props) => {
 
       {revealedPositions.length === 3 && (
         <div style={{ textAlign: 'center', marginTop: '2rem' }}>
-          <button 
+          <button
             className="mystic-button primary large"
             onClick={() => setReadingStep('complete')}
           >
-             Ver Resumen de Lectura
+            Ver Resumen de Lectura
           </button>
         </div>
       )}
@@ -294,7 +293,7 @@ const TarotReading = (props) => {
       </div>
       <div className="complete-actions">
         <button className="mystic-button primary" onClick={resetReading}>
-           Nueva Lectura
+          Nueva Lectura
         </button>
       </div>
     </div>
