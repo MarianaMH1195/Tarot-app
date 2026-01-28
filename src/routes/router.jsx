@@ -27,6 +27,8 @@ const router = createBrowserRouter([
       }
     ],
   },
-]);
+], {
+  basename: '/Tarot-app'
+});
 
 export default router;
