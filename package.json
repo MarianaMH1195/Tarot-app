@@ -2,6 +2,7 @@
   "name": "portal-del-destino",
   "private": true,
   "version": "0.0.0",
+  "homepage": "https://marianamh1195.github.io/Tarot-app/",
   "type": "module",
   "scripts": {
     "dev": "vite",
